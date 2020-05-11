@@ -16,17 +16,15 @@ const App = () => {
     {label: 'Make Lunch', important: false}
   ];
 
-  const addData = []
-
   return (
-    <div className = 'todo-app'>
+    <div className="todo-app">
       <AppHeader toDo={3} done={0}/>
       <div className="top-panel">
         <SearchPanel/>
         <ItemStatusFilter/>
       </div>
-      <TodoList todos = {todoData}/>
-      <AddListItem addTodo = {addData}/>
+      <TodoList todos={todoData}/>
+      <AddListItem/>
     </div>
   )
 };

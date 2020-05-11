@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './add-list-item.css'
 
-const AddListItem = () => {
-  return (
+export default class AddListItem extends Component {
+  render() {
+     return (
     <div className="d-flex add-item-group">
       <input
       className='form-control new-item-input' 
@@ -12,6 +13,10 @@ const AddListItem = () => {
           className="btn btn-outline-primary">Add</button>
     </div>
   )
+  }
+}
+
+
 
   // const TodoList = ({todos}) => {
   //   const elements = todos.map((item) => {
@@ -28,7 +33,3 @@ const AddListItem = () => {
   //     </ul>
   //   );
   // };
- 
-}
-
-export default AddListItem;

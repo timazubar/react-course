@@ -10,7 +10,8 @@ const TodoList = ({todos}) => {
     return (
       <li className = "list-group-item">
         <TodoListItem {...itemProps} />
-      </li>)
+      </li>
+    )
   })
   return (
     <ul className = "list-group todo-list">

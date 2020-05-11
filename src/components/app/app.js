@@ -5,6 +5,7 @@ import AppHeader from '../app-header';
 import SearchPanel from '../search-panel';
 import ItemStatusFilter from '../item-status-filter';
 import TodoList from '../todo-list';
+import AddListItem from '../add-list-item';
 
 import './app.css';
 
@@ -15,6 +16,8 @@ const App = () => {
     {label: 'Make Lunch', important: false}
   ];
 
+  const addData = []
+
   return (
     <div className = 'todo-app'>
       <AppHeader toDo={3} done={0}/>
@@ -22,8 +25,8 @@ const App = () => {
         <SearchPanel/>
         <ItemStatusFilter/>
       </div>
-      
       <TodoList todos = {todoData}/>
+      <AddListItem addTodo = {addData}/>
     </div>
   )
 };

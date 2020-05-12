@@ -10,15 +10,24 @@ import './app.css';
 
 export default class App extends Component {
 
-  maxId = 4;
+  ID = 1;
 
   state = {
-    todoData: [ 
-      {label: 'Drink Coffee', important: false, id: 1},
-      {label: 'Make TODO App', important: true, id: 2},
-      {label: 'Make Lunch', important: false, id: 3}
+    todoData: [
+      this.createTodoItem('Drink Coffee'),
+      this.createTodoItem('Make Awesome App'),
+      this.createTodoItem('Make Lunch')
     ]
   };
+
+  createTodoItem(label) {
+    return {
+      label,
+      important: false,
+      done: false,
+      id: this.ID++
+    }
+  }
 
   deleteItem = (id) => {
     this.setState(({ todoData }) => {
@@ -34,11 +43,7 @@ export default class App extends Component {
   };
 
   addItem = (text) => {
-    const newItem = {
-      label: text,
-      important: false,
-      id: this.maxId++
-    }
+    const newItem = this.createTodoItem(text);
 
     this.setState(({ todoData }) => {
       const newArr = [
@@ -51,8 +56,28 @@ export default class App extends Component {
     })
   };
 
+  onToggleDone = (id) => {
+    this.setState(({ todoData }) => {
+      const idx = todoData.findIndex((el) => el.id === id);
+      const oldItem = todoData[idx];
+      const newItem = {...oldItem, done: !oldItem.done};
+      const newArr = [
+        ...todoData.slice(0, idx),
+        newItem,
+        ...todoData.slice(idx + 1)
+      ];
+      return {
+        todoData: newArr
+      }
+    })
+  }
+
+  onToggleImportant = (id) => {
+    console.log('Toggle important', id);
+  }
+
   render() {
-     return (
+    return (
     <div className="todo-app">
       <AppHeader toDo={3} done={0}/>
       <div className="top-panel">
@@ -62,6 +87,8 @@ export default class App extends Component {
       <TodoList
         todos={this.state.todoData}
         onDeleted={this.deleteItem}
+        onToggleDone={this.onToggleDone}
+        onToggleImportant={this.onToggleImportant}
       />
       <ItemAddForm
         onItemAdded={this.addItem}/>

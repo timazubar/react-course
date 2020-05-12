@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './add-list-item.css'
+import './item-add-form.css'
 
-export default class AddListItem extends Component {
+export default class ItemAddForm extends Component {
   render() {
      return (
     <div className="d-flex add-item-group">
@@ -10,7 +10,8 @@ export default class AddListItem extends Component {
       placeholder='Add new item...'/>
       <button 
           type="button"
-          className="btn btn-outline-primary">Add</button>
+          className="btn btn-outline-primary"
+          onClick={() => this.props.onItemAdded('Hello') }>Add</button>
     </div>
   )
   }

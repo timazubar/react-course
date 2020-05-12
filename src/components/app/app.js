@@ -76,10 +76,16 @@ export default class App extends Component {
     console.log('Toggle important', id);
   }
 
+  
+
   render() {
+    
+    const doneCount = this.state.todoData.filter((el) => el.done === true).length;
+    const todoCount = this.state.todoData.length - doneCount; 
+    
     return (
     <div className="todo-app">
-      <AppHeader toDo={3} done={0}/>
+      <AppHeader toDo={todoCount} done={doneCount}/>
       <div className="top-panel">
         <SearchPanel/>
         <ItemStatusFilter/>

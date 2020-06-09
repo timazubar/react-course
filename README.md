@@ -22,3 +22,11 @@ npm install
 ```
 npm start
 ```
+
+## Preview
+
+```
+Here is the preview image of my Todo App
+```
+
+![alt text](https://github.com/timazubar/react-course/blob/master/preview.png?raw=true)

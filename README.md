@@ -1,5 +1,7 @@
 # Todo-List App
 
+[Link to the deployed version on GH Pages](https://timazubar.github.io/react-course/)
+
 ## Prerequisites
 
 - Git - [Download & Install Git](https://git-scm.com/downloads).
